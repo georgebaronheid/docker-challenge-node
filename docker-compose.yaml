@@ -6,7 +6,7 @@ services:
     command:
       - --innodb-use-native-aio=0
     container_name: db
-    restart: unless-stopped # evitar execução ao ligar o computador
+    restart: on-failure
     tty: true
     volumes:
       - ./mysql:/var/lib/mysql
