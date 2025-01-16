@@ -23,7 +23,7 @@ services:
       retries: 10
 
   app:
-    container_name: app
+#    container_name: app
     build:
       context: ./node
     networks:
@@ -31,6 +31,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    deploy:
+        replicas: 2
+
 
   proxy:
     container_name: proxy
