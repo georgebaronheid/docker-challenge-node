@@ -26,12 +26,9 @@ services:
     container_name: app
     build:
       context: ./node
+      dockerfile: Dockerfile.prod
     networks:
       - node-network
-    volumes:
-      - ./node:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm run dev
     depends_on:
       db:
         condition: service_healthy
@@ -40,6 +37,7 @@ services:
     container_name: proxy
     build:
       context: ./nginx
+      dockerfile: Dockerfile.prod
     networks:
       - node-network
     ports:
