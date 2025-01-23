@@ -30,8 +30,8 @@ services:
       - node-network
     volumes:
       - ./node:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm run dev
+      - ./node/node_modules:/usr/src/app/node_modules
+    command: sh -c "mkdir -p node_modules && npm install --save-dev && npm run dev"
     depends_on:
       db:
         condition: service_healthy
@@ -51,6 +51,3 @@ services:
 networks:
   node-network:
     driver: bridge
-
-volumes:
-  db:
