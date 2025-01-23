@@ -51,7 +51,7 @@ const sql = `INSERT INTO people(name) VALUES ('Ronaldo')`;
 
 app.get('/', (req, res) => {
     const baseHtml = `
-        <h1>Full Cycle Rocks!!!!</h1>
+        <h1>Full Cycle Rocks!</h1>
         <p>Para verificar a saúde da aplicação, acesse /health-check</p>
         <p>Nomes:</p>
         <ul>
